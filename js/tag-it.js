@@ -35,6 +35,7 @@
             readOnly          : false,  // Disables editing.
             removeConfirmation: false,  // Require confirmation to remove tags.
             tagLimit          : null,   // Max number of tags allowed (null for unlimited).
+            tagTemplate       : false,  //
 
             // Used for autocomplete, unless you override `autocomplete.source`.
             availableTags     : [],
