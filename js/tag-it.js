@@ -35,6 +35,7 @@
             readOnly          : false,  // Disables editing.
             removeConfirmation: false,  // Require confirmation to remove tags.
             tagLimit          : null,   // Max number of tags allowed (null for unlimited).
+            tagTemplate       : false,  //
 
             // Used for autocomplete, unless you override `autocomplete.source`.
             availableTags     : [],
@@ -468,6 +469,10 @@
             }
 
             var label = $(this.options.onTagClicked ? '<a class="tagit-label"></a>' : '<span class="tagit-label"></span>').text(value);
+
+            if(this.options.tagName) {
+                label.attr('name', this.options.tagName)
+            }
 
             // Create tag.
             var tag = $('<li></li>')
