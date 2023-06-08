@@ -39,6 +39,8 @@
 
             // Used for autocomplete, unless you override `autocomplete.source`.
             availableTags     : [],
+            availableTypes    : [],
+
 
             // Use to override or add any options to the autocomplete widget.
             //
@@ -437,12 +439,20 @@
             return Boolean($.effects && ($.effects[name] || ($.effects.effect && $.effects.effect[name])));
         },
 
+
+        createTags: function(tags) {
+            for(let i=0; i<tags.length; i++) {
+                this.createTag(tags[i]);
+            }
+        },
+
         createTag: function(value, additionalClass, duringInitialization) {
+
             var that = this;
 
             value = $.trim(value);
 
-            if(this.options.preprocessTag) {
+            if (this.options.preprocessTag) {
                 value = this.options.preprocessTag(value);
             }
 
@@ -590,10 +600,11 @@
 
         removeTagByLabel: function(tagLabel, animate) {
             var toRemove = this._findTagByLabel(tagLabel);
-            if (!toRemove) {
-                throw "No such tag exists with the name '" + tagLabel + "'";
+
+            if (toRemove) {
+                this.removeTag(toRemove, animate);
             }
-            this.removeTag(toRemove, animate);
+
         },
 
         removeAll: function() {
