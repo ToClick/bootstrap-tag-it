@@ -12,6 +12,8 @@ Tag-it is a simple and configurable tag editing widget with autocomplete support
 
 Check the [examples.html](http://aehlke.github.com/tag-it/examples.html) for several demos and the [prototype.js](http://aehlke.github.com/tag-it/prototype.js) file for a JavaScript prototype with all options and events.
 
+
+
 ## Usage
 
 First, load [jQuery](http://jquery.com/) (v1.4 or greater), [jQuery UI](http://jqueryui.com/) (v1.8 or greater), and the plugin:
