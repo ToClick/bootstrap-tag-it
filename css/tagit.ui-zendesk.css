@@ -15,6 +15,11 @@ ul.tagit{
     border-radius: var(--bs-border-radius);
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+ul.tagit-group {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
 /*
        END THEME
  */
