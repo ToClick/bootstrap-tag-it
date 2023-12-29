@@ -33,6 +33,7 @@
             fieldName         : 'tags',
             placeholderText   : null,   // Sets `placeholder` attr on input field.
             readOnly          : false,  // Disables editing.
+            clickClose        : false,  // Click on tag == close tag
             removeConfirmation: false,  // Require confirmation to remove tags.
             tagLimit          : null,   // Max number of tags allowed (null for unlimited).
             tagTemplate       : false,  //
@@ -490,9 +491,16 @@
                 .addClass(additionalClass)
                 .append(label);
 
-            if (this.options.readOnly){
+            if (this.options.readOnly) {
                 tag.addClass('tagit-choice-read-only');
-            } else {
+            }
+            else if(this.options.clickClose) {
+                tag.addClass('tagit-click-close').click(function(e) {
+                    // Removes a tag when clicked
+                    that.removeTag(tag);
+                });
+            }
+            else {
                 tag.addClass('tagit-choice-editable');
                 // Button for removing the tag.
                 var removeTagIcon = $('<span></span>')
