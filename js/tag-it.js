@@ -40,6 +40,7 @@
 
             // Used for autocomplete, unless you override `autocomplete.source`.
             availableTags     : [],
+            availableTagsEx   : [],
             availableTypes    : [],
 
 
@@ -382,6 +383,33 @@
                     tags.push(that.tagLabel(this));
                 });
             }
+            return tags;
+        },
+
+        assignedTagsEx: function() {
+            // Returns an array of tag string values
+
+            let tags = [];
+
+            let assign = this.assignedTags();
+            let tagEx = this.options.availableTagsEx;
+
+            for (let i = 0; i<assign.length; i++) {
+
+                let name = assign[i];
+                console.log('=>' + name);
+
+                for (let j = 0; j<tagEx.length; j++) {
+
+                    if (name === tagEx[j].name) {
+                        tags.push({
+                            name: name,
+                            type: tagEx[j].type
+                        })
+                    }
+                }
+            }
+
             return tags;
         },
 
