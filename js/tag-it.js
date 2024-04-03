@@ -387,17 +387,13 @@
         },
 
         assignedTagsEx: function() {
-            // Returns an array of tag string values
 
             let tags = [];
-
             let assign = this.assignedTags();
             let tagEx = this.options.availableTagsEx;
 
             for (let i = 0; i<assign.length; i++) {
-
                 let name = assign[i];
-                console.log('=>' + name);
 
                 for (let j = 0; j<tagEx.length; j++) {
 
